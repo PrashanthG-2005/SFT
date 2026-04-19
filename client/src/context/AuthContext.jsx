@@ -24,7 +24,8 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const baseURL = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api';
+      const PROD_URL = 'https://sft-2biz.onrender.com';
+      const baseURL = import.meta.env.MODE === 'development' ? '/api' : `${import.meta.env.VITE_API_URL || PROD_URL}/api`;
       const res = await axios.get(`${baseURL}/auth/me`, { 
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
@@ -37,7 +38,8 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const baseURL = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api';
+      const PROD_URL = 'https://sft-2biz.onrender.com';
+      const baseURL = import.meta.env.MODE === 'development' ? '/api' : `${import.meta.env.VITE_API_URL || PROD_URL}/api`;
       const res = await axios.post(`${baseURL}/auth/login`, { email, password });
       localStorage.setItem('token', res.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
@@ -50,7 +52,8 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const baseURL = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api';
+      const PROD_URL = 'https://sft-2biz.onrender.com';
+      const baseURL = import.meta.env.MODE === 'development' ? '/api' : `${import.meta.env.VITE_API_URL || PROD_URL}/api`;
       const res = await axios.post(`${baseURL}/auth/register`, { name, email, password });
       localStorage.setItem('token', res.data.token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;

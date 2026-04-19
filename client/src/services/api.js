@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const PROD_URL = 'https://sft-2biz.onrender.com';
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api'
+  baseURL: import.meta.env.MODE === 'development' ? '/api' : `${import.meta.env.VITE_API_URL || PROD_URL}/api`
 });
 
 export const authAPI = {
