@@ -1,0 +1,48 @@
+/* Expenses Page Styles */
+.expenses-page {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.edit-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.edit-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+  animation: fadeInUp 0.25s ease-out;
+}
+
+/* Category Badges */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.category-food         { background: var(--cat-food); color: var(--cat-food-text); }
+.category-travel       { background: var(--cat-travel); color: var(--cat-travel-text); }
+.category-bills        { background: var(--cat-bills); color: var(--cat-bills-text); }
+.category-entertainment{ background: var(--cat-entertainment); color: var(--cat-entertainment-text); }
+.category-shopping     { background: var(--cat-shopping); color: var(--cat-shopping-text); }
+.category-health       { background: var(--cat-health); color: var(--cat-health-text); }
+.category-education    { background: var(--cat-education); color: var(--cat-education-text); }
+.category-other        { background: var(--cat-other); color: var(--cat-other-text); }
+
+@media (max-width: 768px) {
+  .edit-card { max-width: 100%; }
+}

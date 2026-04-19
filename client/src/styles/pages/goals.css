@@ -1,0 +1,112 @@
+/* Goals Tracker Styles */
+.goals-tracker {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.goal-form {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.goal-card {
+  padding: 1.75rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+}
+
+.goal-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+}
+
+.goal-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.progress-container {
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 10px;
+  background: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--emerald), #059669);
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-container span {
+  font-weight: 700;
+  color: var(--emerald);
+  font-size: 0.9rem;
+}
+
+.goal-amounts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  background: var(--bg-color);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.goal-amounts strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.add-amount-inline {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 1;
+}
+
+.add-amount-inline input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-color);
+  min-width: 0;
+}
+
+.add-amount-inline input:focus {
+  outline: none;
+  border-color: var(--indigo-deep);
+}
+
+@media (max-width: 768px) {
+  .goals-grid { grid-template-columns: 1fr; }
+  .goal-amounts { flex-direction: column; gap: 0.25rem; }
+}
